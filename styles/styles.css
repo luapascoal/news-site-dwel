@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #1e1e1f;
+}
+
+.nav-links a,
+.cta,
+.overlay-content a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+header span {
+    color: #dbdbdb;
+    text-decoration: none;
+    padding: 10px 25px;
+    background-color: rgb(17, 17, 17);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    padding: 0px 20px;
+}
+
+.nav-links li a {
+    transition: color 0.3s ease 0s;
+}
+
+.nav-links li a:hover {
+    color: rgb(150, 100, 230);
+}
+
+.cta {
+    padding: 10px 25px;
+    background-color: rgb(150, 100, 230);
+    border: 1px solid rgb(177, 138, 240);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease 0s;
+}
+
+.cta:hover {
+    background-color: rgb(162, 113, 241);
+}
+
+/* 
+    mobile
+*/
+
+.menu {
+    display: none;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: #24252a;
+    overflow-x: hidden;
+    transition: width 0.5s ease 0s;
+}
+
+.overlay-active {
+    width: 100%;
+}
+
+.overlay-content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay a {
+    padding: 15px;
+    font-size: 36px;
+    display: block;
+    transition: color 0.3s ease 0s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: rgb(150, 100, 230);
+}
+
+.overlay .close {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color: #edf0f1;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 980px) {
+    .nav-links,
+    .cta {
+      display: none;
+    }
+    .menu {
+      display: initial;
+    }
+}
