@@ -2,7 +2,7 @@
 <html lang="pt">
 
 <head>
-    <title>Projeto Web</title>
+    <title>Projeto Web - Contato</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./styles/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
@@ -12,7 +12,6 @@
     <header>
         <span>G1 do Paraguai</span>
         <nav>
-            
             <ul class="nav-links">
                 <!--
                     TODO make selected
@@ -38,7 +37,22 @@
             <a href="education">Educação</a>
         </div>
     </div>
-    <div class="grid-container"></div>
+    
+    <div class="grid-container">
+        <form action="">
+            <label for="form-name">Nome completo</label>
+            <input type="text" id="form_name" name="name" placeholder="Digite seu nome">
+            
+            <label for="form-email">E-mail</label>
+            <input type="text" id="form-email" name="email" placeholder="Digite seu e-mail">
+        
+            <label for="subject">Assunto</label>
+            <textarea id="subject" name="subject" placeholder="Digite o assunto"></textarea>
+        
+            <input type="submit" value="Enviar">
+
+        </form>
+    </div>
 
     <script type="text/javascript" src="/scripts/mobile.js"></script>
     <script type="text/javascript" src="/scripts/scripts.js"></script>
