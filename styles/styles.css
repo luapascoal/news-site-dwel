@@ -5,12 +5,19 @@
     font-family: "Montserrat", sans-serif;
 }
 
+/*
+    header and nav
+*/
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 10%;
     background-color: #1e1e1f;
+}
+
+.nav-links .selected {
+    color:rgb(177, 138, 240);
 }
 
 .nav-links a,
@@ -59,10 +66,30 @@ header span {
     background-color: rgb(162, 113, 241);
 }
 
+/*
+    container and items
+*/
+.container {
+    padding: 30px 10%;
+}
+
+/*
+    footer
+*/
+footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	color: #fff;
+	background-color: rgb(150, 100, 230);
+	padding: 60px 0;
+    margin-top: 50px;
+}
+
 /* 
     mobile
 */
-
 .menu {
     display: none;
 }
