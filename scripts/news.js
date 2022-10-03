@@ -126,7 +126,7 @@ const handleConstruct = (category) => {
 };
 
 const getNews = (category) => {
-    if (category == "index") return getRandomNews();
+    if (category == "index" || category == "") return getRandomNews();
 
     let categoryNews = [];
     news.forEach(forNews => {
