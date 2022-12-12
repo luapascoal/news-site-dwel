@@ -2,7 +2,7 @@
 <html lang="pt">
 
 <head>
-    <title>Projeto Web</title>
+    <title>Projeto Web - Autenticação</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./styles/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
@@ -30,7 +30,6 @@
             </div>
             <a class="cta" style="margin-right: 10px" href="auth.html">Login</a>
             <a class="cta" style="margin-right: 10px" href="contact.html">Contato</a>
-            
         </div>
 
         <!-- mobile -->
@@ -46,7 +45,33 @@
             <a href="education">Educação</a>
         </div>
     </div>
-    <div class="grid-container"></div>
+    
+    <div class="grid-container">
+        <form onsubmit="return false;" method="post">
+            <p>Registrar</p>
+            <label for="form-email">E-mail</label>
+            <input type="email" id="register-email" name="email" placeholder="Digite seu e-mail">
+
+            <label for="subject">Senha</label>
+            <input type="password" id="register-password" name="password" placeholder="Digite a senha"></input>
+            
+            <input type="submit" value="Registrar" onclick="return handleRegister()">
+            <p id="register-message"></p>
+
+        </form>
+
+        <form onsubmit="return false;" method="post">
+            <p>Logar</p>
+            <label for="form-email">E-mail</label>
+            <input type="email" id="login-email" name="email" placeholder="Digite seu e-mail">
+            <label for="subject">Senha</label>
+            <input type="password" id="login-password" name="password" placeholder="Digite a senha"></input>
+            
+            <input type="submit" value="Logar" onclick="return handleLogin()">
+            <p id="login-message"></p>
+
+        </form>
+    </div>
 
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
@@ -57,10 +82,11 @@
     <script src="/scripts/mobile.js"></script>
     <script src="/scripts/scripts.js"></script>
     <script src="/scripts/news.js"></script>
-
-    <footer>
-        <p>Licenciamento ISC | Autor: Luã Pascoal Ramos</p>
-    </footer>
 </body>
 
+<footer>
+    <p>Licenciamento ISC | Autor: Luã Pascoal Ramos</p>
+</footer>
+
 </html>
+

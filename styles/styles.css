@@ -36,9 +36,14 @@ header span {
     background-color: rgb(17, 17, 17);
 }
 
+.flex {
+    display: flex;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
 .nav-links li {
@@ -59,11 +64,13 @@ header span {
     border: 1px solid rgb(177, 138, 240);
     border-radius: 2px;
     cursor: pointer;
+    text-decoration: none;
+    color: white;
     transition: background-color 0.3s ease 0s;
 }
 
 .cta:hover {
-    background-color: rgb(162, 113, 241);
+    background-color:rgb(162, 113, 241);
 }
 
 /*
@@ -71,15 +78,19 @@ header span {
 */
 .grid-container {
     padding: 25px 50px 25px 50px;
-    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
 }
 
 .grid-item {
     color: white;
+    text-decoration: none;
     padding: 75px 50px 75px 50px;
     margin: 50px 0px 50px 0px;
-    width: 100%;
-    height: 100%;
+    width: 45%;
     border-radius: 5px;
     box-shadow: 0px 10px 25px 0px rgba(0,0,0,0.1);
     background-size: cover;
@@ -87,10 +98,168 @@ header span {
     background-position: center center;
 }
 
+.grid-news-item {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.grid-news-item a {
+    color: white;
+    text-decoration: none;
+    background: rgb(135, 67, 243);
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+    border-radius: 25px;
+    text-align: center;
+    width: 25%;
+    transition: 0.5s;
+}
+
+.grid-news-item a:hover {
+    color: white;
+    text-decoration: none;
+    background: rgb(145, 89, 236);
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+    border-radius: 25px;
+    text-align: center;
+    width: 25%;
+}
+
+.grid-news-item p {
+    padding: 10px 0px 10px 0px;
+}
+
+.read-more {
+    padding: 30px 0px 0px 0px;
+    font-size: 20px;
+}
+
+.news-image {
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/*
+    search bar
+*/
+.search {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 40px;
+    transition: 0.5s;
+    box-shadow: 0 0 0 5px #1e1e1f;
+    overflow: hidden;
+}
+
+.search.active {
+    width: 260px;
+}
+
+.search .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: rgb(150, 100, 230);
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.search .icon::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 3px solid white;
+    border-radius: 50%;
+    transform: translate(-3px, -3px);
+}
+
+.search .icon::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 7px;
+    background: white;
+    transform: translate(5px, 5px) rotate(315deg);
+}
+
+.search .input {
+    position: relative;
+    width: 200px;
+    height: 30px;
+    left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search .input input {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-list {
+    position: fixed;
+    top: 65px;
+    padding: 20px;
+    opacity: 0;
+    max-height: 250px;
+    overflow-y: auto;
+    background: rgb(159, 42, 236);
+    border-radius: 15px;
+}
+
+.search-list.active {
+    opacity: 1;
+    display: block;
+}
+
+
+.search-list li {
+    list-style: none;
+    padding: 8px 12px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.search-list a {
+    color: white;
+    text-decoration: none;
+}
+
+.search-list li:hover {
+    background: rgb(205, 41, 255);
+}
+
 /*
     contact form
 */
-input[type=text], select, textarea {
+form p {
+    font-size: 26px;
+    padding: 20px 0px 20px 0px;
+}
+
+input[type=text], input[type=email], input[type=password], select, textarea {
     width: 100%;
     padding: 15px;
     border: 1px solid #ccc;
@@ -99,9 +268,9 @@ input[type=text], select, textarea {
     margin-top: 5px;
     margin-bottom: 10px;
     resize: vertical
-  }
+}
 
- input[type=submit] {
+input[type=submit], form button {
     background-color: rgb(150, 100, 230);
     color: white;
     padding: 10px 45px;
@@ -113,7 +282,6 @@ input[type=text], select, textarea {
 
 input[type=submit]:hover {
     background-color: rgb(135, 67, 243);
-    padding: 10px 50px;
 }
 
 /*
@@ -141,7 +309,7 @@ footer {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     left: 0;
     top: 0;
     background-color: #24252a;
@@ -182,12 +350,25 @@ footer {
     cursor: pointer;
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 1100px) {
     .nav-links,
     .cta {
       display: none;
     }
     .menu {
       display: initial;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    header span {
+      display: none;
+    }
+    .grid-news-item a {
+        font-size: 12px;
+        width: 50%;
+    }
+    .grid-news-item a:hover {
+        width: 50%;
     }
 }

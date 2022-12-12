@@ -13,17 +13,25 @@
         <span>G1 do Paraguai</span>
         <nav>
             <ul class="nav-links">
-                <!--
-                    TODO make selected
-                -->
-                <li><a class="nav-item" href="index">Pag. Principal</a></li>
+                <li><a class="nav-item" href="/">Pag. Principal</a></li>
                 <li><a class="nav-item" href="politic">Política</a></li>
                 <li><a class="nav-item" href="health">Saúde</a></li>
                 <li><a class="nav-item" href="education">Educação</a></li>
             </ul>
         </nav>
-        <a class="cta" href="contact">Contato</a>
         
+        <div class="flex">
+            <div class="search" style="margin-right: 10px">
+                <div class="icon"></div>
+                <div class="input">
+                    <input type="text" placeholder="Pesquisa" id="search-input" class="search-input">
+                    <div class="search-list"></div>
+                </div>
+            </div>
+            <a class="cta" style="margin-right: 10px" href="auth.html">Login</a>
+            <a class="cta" style="margin-right: 10px" href="contact.html">Contato</a>
+        </div>
+
         <!-- mobile -->
         <p class="menu cta">Menu</p>
     </header>
@@ -31,7 +39,7 @@
     <div class="overlay">
         <a class="close">&times;</a>
         <div class="overlay-content">
-            <a href="home">Pag. Principal</a>
+            <a href="/">Pag. Principal</a>
             <a href="politic">Política</a>
             <a href="health">Saúde</a>
             <a href="education">Educação</a>
@@ -54,9 +62,15 @@
         </form>
     </div>
 
-    <script type="text/javascript" src="/scripts/mobile.js"></script>
-    <script type="text/javascript" src="/scripts/scripts.js"></script>
-    <script type="text/javascript" src="/scripts/news.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+    
+    <script src="/scripts/env.js"></script>
+    <script src="/scripts/auth.js"></script>
+    <script src="/scripts/mobile.js"></script>
+    <script src="/scripts/scripts.js"></script>
+    <script src="/scripts/news.js"></script>
 </body>
 
 <footer>

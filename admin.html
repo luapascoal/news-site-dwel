@@ -2,7 +2,7 @@
 <html lang="pt">
 
 <head>
-    <title>Projeto Web</title>
+    <title>Projeto Web - Admin</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./styles/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
@@ -30,7 +30,6 @@
             </div>
             <a class="cta" style="margin-right: 10px" href="auth.html">Login</a>
             <a class="cta" style="margin-right: 10px" href="contact.html">Contato</a>
-            
         </div>
 
         <!-- mobile -->
@@ -46,7 +45,35 @@
             <a href="education">Educação</a>
         </div>
     </div>
-    <div class="grid-container"></div>
+    
+    <div class="grid-container">
+        <form onsubmit="return false;" method="post">
+            <p>Registrar Notícia</p>
+
+            <label for="types">Tipos</label>
+            <datalist id="types">
+                <option value="Saúde">
+                <option value="Política">    
+                <option value="Educação">
+             </datalist>
+
+            <label for="title">Título</label>
+            <input type="text" id="title" name="title" placeholder="Digite o Título">
+
+            <label for="image">Imagem</label>
+            <input type="text" id="image" name="image" placeholder="Digite o url da imagem">
+
+            <label for="author">Autor</label>
+            <input type="text" id="author" name="author" placeholder="Digite o Autor">
+
+            <label for="content">Conteúdo</label>
+            <input type="text" id="content" name="content" placeholder="Digite o Texto">
+            
+            <input type="submit" value="Enviar" onclick="return handleRegisterNews()">
+            <p id="register-news"></p>
+
+        </form>
+    </div>
 
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
@@ -57,10 +84,11 @@
     <script src="/scripts/mobile.js"></script>
     <script src="/scripts/scripts.js"></script>
     <script src="/scripts/news.js"></script>
-
-    <footer>
-        <p>Licenciamento ISC | Autor: Luã Pascoal Ramos</p>
-    </footer>
 </body>
 
+<footer>
+    <p>Licenciamento ISC | Autor: Luã Pascoal Ramos</p>
+</footer>
+
 </html>
+
