@@ -76,6 +76,10 @@ header span {
 /*
     container and items
 */
+.grid-news-container {
+    padding: 25px 50px 25px 50px;
+}
+
 .grid-container {
     padding: 25px 50px 25px 50px;
     display: flex;
@@ -83,6 +87,10 @@ header span {
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: space-around;
+}
+
+.grid-container a, .grid-container p, .grid-container h1 {
+    text-shadow: 0px 3px 10px rgba(150, 150, 150, 0.75);
 }
 
 .grid-item {
@@ -105,27 +113,49 @@ header span {
     justify-content: center;
 }
 
-.grid-news-item a {
+.liked {
     color: white;
     text-decoration: none;
     background: rgb(135, 67, 243);
-    padding: 10px;
-    margin: 10px 0px 10px 0px;
+    padding: 8px 10px 8px 10px;
+    margin: 10px 5px 10px 5px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.liked:hover {
+    background: rgb(145, 89, 236);
+}
+
+.grid-news-item a {
+    color: black;
+    text-decoration: none;
+    padding: 8px 10px 8px 10px;
+    margin: 10px 5px 10px 0px;
     border-radius: 25px;
     text-align: center;
-    width: 25%;
     transition: 0.5s;
 }
 
-.grid-news-item a:hover {
+.grid-news-buttons {
+    padding: 5px 8px 5px 8px;
+}
+
+.like-button {
     color: white;
+    border: none;
     text-decoration: none;
-    background: rgb(145, 89, 236);
-    padding: 10px;
-    margin: 10px 0px 10px 0px;
+    padding: 8px 10px 8px 10px;
+    margin: 10px 5px 10px 0px;
+    cursor: pointer;
     border-radius: 25px;
     text-align: center;
-    width: 25%;
+    font-size: 18px;
+}
+
+.already-liked {
+    color: red;
 }
 
 .grid-news-item p {

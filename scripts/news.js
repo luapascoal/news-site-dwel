@@ -97,9 +97,13 @@ let news = [
 document.addEventListener('DOMContentLoaded',async() => {
     await fetchNews();
 
-    const directories = document.querySelectorAll(".nav-item");
-
     var currentDirectory = location.href;
+    if (currentDirectory.includes('liked')) {
+        renderNews(currentDirectory);
+        return;
+    }
+
+    const directories = document.querySelectorAll(".nav-item");
     for (var i = 0; i < directories.length; i++) {
         if (directories[i].href != currentDirectory) continue;
 
@@ -134,12 +138,21 @@ function handleRegisterNews() {
         content: content.value
     })
     .then(() => {
+        news.push(
+            id,
+            category.value,
+            title.value,
+            image.value,
+            author.value,
+            content.value
+        );
+
         category.value = "";
         title.value = "";
         image.value = "";
         author.value = "";
         content.value = "";
-
+        
         console.log('Noticia criada salvo.');
         document.getElementById('register-news').innerHTML = "Notícia registrada com sucesso.";
     })
@@ -166,19 +179,63 @@ async function fetchNews() {
     return news;
 };
 
-const renderNewsContent = (news) => {
+const renderLikedNews = async() => {
     const newsContainer = document.querySelector('.grid-container');
+    
+    let categoryNews = await getLikedNews();
+    categoryNews.forEach(categoryNewsItem => {
+        const newsItem = document.createElement("a");
+        newsItem.style.backgroundImage = "url(" + categoryNewsItem.image + ")";
+        newsItem.classList.add("grid-item");
+    
+        const authorItem = document.createElement("p");
+        authorItem.innerText = "Autor: " + categoryNewsItem.author;
+
+        const titleItem = document.createElement("h1");
+        titleItem.innerText = categoryNewsItem.title;
+
+        const contentItem = document.createElement("p");
+        contentItem.innerText = categoryNewsItem.content;
+
+        const readMore = document.createElement("p");
+        readMore.classList.add("read-more");
+        readMore.innerText = "Clique para ler mais."
+
+        newsItem.appendChild(authorItem);
+        newsItem.appendChild(titleItem);
+        newsItem.appendChild(contentItem);
+        newsItem.appendChild(readMore);
+
+        newsItem.setAttribute("href", categoryNewsItem.id);
+
+        newsContainer.appendChild(newsItem);
+    });
+};
+
+const renderNewsContent = async(news) => {
+    const newsContainer = document.querySelector('.grid-news-container');
 
     const image = document.createElement("div");
     image.classList.add("news-image");
-    image.style.backgroundImage = "url(" + news.picture + ")";
+    image.style.backgroundImage = "url(" + news.image + ")";
 
     const newsItem = document.createElement("div");
     newsItem.classList.add("grid-news-item");
 
+    const buttonItem = document.createElement("div");
+    buttonItem.classList.add("grid-news-buttons");
+
     const backItem = document.createElement("a");
-    backItem.innerText = "Clique para voltar.";
+    backItem.innerText = "◀";
     backItem.setAttribute("href", "/");
+
+    const likeButton = document.createElement("button");
+    likeButton.classList.add("like-button");
+    likeButton.innerText = "❤";
+    likeButton.setAttribute("onclick", "handleLike(" + news.id + ")");
+
+    buttonItem.appendChild(backItem);
+    buttonItem.appendChild(likeButton);
 
     const authorItem = document.createElement("p");
     authorItem.innerText = "Autor: " + news.author;
@@ -189,13 +246,19 @@ const renderNewsContent = (news) => {
     const contentItem = document.createElement("p");
     contentItem.innerText = news.content;
 
-    newsItem.appendChild(backItem);
+    newsItem.appendChild(buttonItem);
     newsItem.appendChild(image);
     newsItem.appendChild(authorItem);
     newsItem.appendChild(titleItem);
     newsItem.appendChild(contentItem);
 
     newsContainer.appendChild(newsItem);
+
+    let readUser = await fetchUser();
+    let liked = readUser.liked;
+    if (liked.includes(news.id)) {
+        likeButton.classList.add('already-liked');
+    }
 };
 
 const renderNews = (href) => {
@@ -205,6 +268,11 @@ const renderNews = (href) => {
 };
 
 const handleConstruct = (category) => {
+    if (category === 'liked') {
+        renderLikedNews();
+        return;
+    }
+
     const newsContainer = document.querySelector('.grid-container');
 
     let categoryNews = getNews(category);
@@ -237,12 +305,28 @@ const handleConstruct = (category) => {
     });
 };
 
+const getLikedNews = async() => {
+    let likedNews = [];
+
+    let readUser = await fetchUser();
+    console.log(readUser.liked);
+    for (var i = 0; i < readUser.liked.length; i++) {
+        for (var y = 0; y < news.length; y++) {
+            if (news[y].id == readUser.liked[i]){
+                likedNews.push(news[y]);
+            } 
+        }
+    }
+
+    return likedNews;
+};
+
 const getNews = (category) => {
     if (category == "index" || category == "") return getRandomNews();
 
     let categoryNews = [];
     news.forEach(forNews => {
-        if (forNews.category.id == category) categoryNews.push(forNews);
+        if (forNews.category == category) categoryNews.push(forNews);
     });
 
     return categoryNews;
