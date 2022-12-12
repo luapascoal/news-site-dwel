@@ -15,13 +15,16 @@ let categories = [
     }
 ];
 
+let news = [];
+/*
+old static news
 let news = [
     {
         category: politic,
         id: 1,
         title: 'Eleição 1',
         author: 'Luã',
-        picture: './images/paisagem.jpg',
+        picture: 'https://i.imgur.com/sKV54PO.jpeg',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at justo dignissim, venenatis elit sit amet, facilisis nulla. Nunc sodales ex a commodo porta. Nullam ut elementum orci. Vestibulum egestas pretium odio ut tristique. Suspendisse sed dolor mollis, pulvinar ex fringilla, luctus ex. Etiam tempor laoreet efficitur. Mauris vestibulum mi sed felis bibendum ultricies. Curabitur quis facilisis magna, sed aliquet metus. Maecenas a fringilla sapien. Nullam lacus augue, lacinia in tellus nec, imperdiet rhoncus nisl. Curabitur efficitur placerat nulla, non luctus sapien volutpat non.'
     },
     {
@@ -29,7 +32,7 @@ let news = [
         id: 2,
         title: 'Educação 1',
         author: 'Luã',
-        picture: './images/paisagem.jpg',
+        picture: 'https://i.imgur.com/sKV54PO.jpeg',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at justo dignissim, venenatis elit sit amet, facilisis nulla. Nunc sodales ex a commodo porta. Nullam ut elementum orci. Vestibulum egestas pretium odio ut tristique. Suspendisse sed dolor mollis, pulvinar ex fringilla, luctus ex. Etiam tempor laoreet efficitur. Mauris vestibulum mi sed felis bibendum ultricies. Curabitur quis facilisis magna, sed aliquet metus. Maecenas a fringilla sapien. Nullam lacus augue, lacinia in tellus nec, imperdiet rhoncus nisl. Curabitur efficitur placerat nulla, non luctus sapien volutpat non.'
     },
     {
@@ -37,7 +40,7 @@ let news = [
         id: 3,
         title: 'Saúde 1',
         author: 'Luã',
-        picture: './images/paisagem.jpg',
+        picture: 'https://i.imgur.com/sKV54PO.jpeg',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at justo dignissim, venenatis elit sit amet, facilisis nulla. Nunc sodales ex a commodo porta. Nullam ut elementum orci. Vestibulum egestas pretium odio ut tristique. Suspendisse sed dolor mollis, pulvinar ex fringilla, luctus ex. Etiam tempor laoreet efficitur. Mauris vestibulum mi sed felis bibendum ultricies. Curabitur quis facilisis magna, sed aliquet metus. Maecenas a fringilla sapien. Nullam lacus augue, lacinia in tellus nec, imperdiet rhoncus nisl. Curabitur efficitur placerat nulla, non luctus sapien volutpat non.'
     },
     {
@@ -45,7 +48,7 @@ let news = [
         id: 4,
         title: 'Eleição 2',
         author: 'Luã',
-        picture: './images/paisagem.jpg',
+        picture: 'https://i.imgur.com/sKV54PO.jpeg',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at justo dignissim, venenatis elit sit amet, facilisis nulla. Nunc sodales ex a commodo porta. Nullam ut elementum orci. Vestibulum egestas pretium odio ut tristique. Suspendisse sed dolor mollis, pulvinar ex fringilla, luctus ex. Etiam tempor laoreet efficitur. Mauris vestibulum mi sed felis bibendum ultricies. Curabitur quis facilisis magna, sed aliquet metus. Maecenas a fringilla sapien. Nullam lacus augue, lacinia in tellus nec, imperdiet rhoncus nisl. Curabitur efficitur placerat nulla, non luctus sapien volutpat non.'
     },
     {
@@ -53,7 +56,7 @@ let news = [
         id: 5,
         title: 'Educação 2',
         author: 'Luã',
-        picture: './images/paisagem.jpg',
+        picture: 'https://i.imgur.com/sKV54PO.jpeg',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at justo dignissim, venenatis elit sit amet, facilisis nulla. Nunc sodales ex a commodo porta. Nullam ut elementum orci. Vestibulum egestas pretium odio ut tristique. Suspendisse sed dolor mollis, pulvinar ex fringilla, luctus ex. Etiam tempor laoreet efficitur. Mauris vestibulum mi sed felis bibendum ultricies. Curabitur quis facilisis magna, sed aliquet metus. Maecenas a fringilla sapien. Nullam lacus augue, lacinia in tellus nec, imperdiet rhoncus nisl. Curabitur efficitur placerat nulla, non luctus sapien volutpat non.'
     },
     {
@@ -61,7 +64,7 @@ let news = [
         id: 6,
         title: 'Saúde 2',
         author: 'Luã',
-        picture: './images/paisagem.jpg',
+        picture: 'https://i.imgur.com/sKV54PO.jpeg',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at justo dignissim, venenatis elit sit amet, facilisis nulla. Nunc sodales ex a commodo porta. Nullam ut elementum orci. Vestibulum egestas pretium odio ut tristique. Suspendisse sed dolor mollis, pulvinar ex fringilla, luctus ex. Etiam tempor laoreet efficitur. Mauris vestibulum mi sed felis bibendum ultricies. Curabitur quis facilisis magna, sed aliquet metus. Maecenas a fringilla sapien. Nullam lacus augue, lacinia in tellus nec, imperdiet rhoncus nisl. Curabitur efficitur placerat nulla, non luctus sapien volutpat non.'
     },
     {
@@ -69,7 +72,7 @@ let news = [
         id: 7,
         title: 'Eleição 3',
         author: 'Luã',
-        picture: './images/paisagem.jpg',
+        picture: 'https://i.imgur.com/sKV54PO.jpeg',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at justo dignissim, venenatis elit sit amet, facilisis nulla. Nunc sodales ex a commodo porta. Nullam ut elementum orci. Vestibulum egestas pretium odio ut tristique. Suspendisse sed dolor mollis, pulvinar ex fringilla, luctus ex. Etiam tempor laoreet efficitur. Mauris vestibulum mi sed felis bibendum ultricies. Curabitur quis facilisis magna, sed aliquet metus. Maecenas a fringilla sapien. Nullam lacus augue, lacinia in tellus nec, imperdiet rhoncus nisl. Curabitur efficitur placerat nulla, non luctus sapien volutpat non.'
     },
     {
@@ -77,7 +80,7 @@ let news = [
         id: 8,
         title: 'Educação 3',
         author: 'Luã',
-        picture: './images/paisagem.jpg',
+        picture: 'https://i.imgur.com/sKV54PO.jpeg',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at justo dignissim, venenatis elit sit amet, facilisis nulla. Nunc sodales ex a commodo porta. Nullam ut elementum orci. Vestibulum egestas pretium odio ut tristique. Suspendisse sed dolor mollis, pulvinar ex fringilla, luctus ex. Etiam tempor laoreet efficitur. Mauris vestibulum mi sed felis bibendum ultricies. Curabitur quis facilisis magna, sed aliquet metus. Maecenas a fringilla sapien. Nullam lacus augue, lacinia in tellus nec, imperdiet rhoncus nisl. Curabitur efficitur placerat nulla, non luctus sapien volutpat non.'
     },
     {
@@ -85,12 +88,15 @@ let news = [
         id: 9,
         title: 'Saúde 3',
         author: 'Luã',
-        picture: './images/paisagem.jpg',
+        picture: 'https://i.imgur.com/sKV54PO.jpeg',
         content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at justo dignissim, venenatis elit sit amet, facilisis nulla. Nunc sodales ex a commodo porta. Nullam ut elementum orci. Vestibulum egestas pretium odio ut tristique. Suspendisse sed dolor mollis, pulvinar ex fringilla, luctus ex. Etiam tempor laoreet efficitur. Mauris vestibulum mi sed felis bibendum ultricies. Curabitur quis facilisis magna, sed aliquet metus. Maecenas a fringilla sapien. Nullam lacus augue, lacinia in tellus nec, imperdiet rhoncus nisl. Curabitur efficitur placerat nulla, non luctus sapien volutpat non.'
     }
 ];
+*/
 
-document.addEventListener('DOMContentLoaded',() => {
+document.addEventListener('DOMContentLoaded',async() => {
+    await fetchNews();
+
     const directories = document.querySelectorAll(".nav-item");
 
     var currentDirectory = location.href;
@@ -110,6 +116,55 @@ document.addEventListener('DOMContentLoaded',() => {
         renderNewsContent(news[i]);
     }
 });
+
+function handleRegisterNews() {
+    let id = news.length + 1;
+    let category = document.getElementById('news-category');
+    let title = document.getElementById('news-title');
+    let image = document.getElementById('news-image');
+    let author = document.getElementById('news-author');
+    let content = document.getElementById('news-content');
+
+    db.collection("news").add({
+        id: id,
+        category: category.value,
+        title: title.value,
+        image: image.value,
+        author: author.value,
+        content: content.value
+    })
+    .then(() => {
+        category.value = "";
+        title.value = "";
+        image.value = "";
+        author.value = "";
+        content.value = "";
+
+        console.log('Noticia criada salvo.');
+        document.getElementById('register-news').innerHTML = "Notícia registrada com sucesso.";
+    })
+    .catch((error) => {
+        console.log(error);
+        document.getElementById('register-news').innerHTML = error;
+    });
+}
+
+async function fetchNews() {
+    const newsCollection = await db.collection("news").get();
+
+    newsCollection.forEach(element => {
+        news.push({
+            id: element.data().id,
+            category: element.data().category,
+            title: element.data().title,
+            author: element.data().author,
+            image: element.data().image,
+            content: element.data().content
+        });
+    });
+
+    return news;
+};
 
 const renderNewsContent = (news) => {
     const newsContainer = document.querySelector('.grid-container');
@@ -155,7 +210,7 @@ const handleConstruct = (category) => {
     let categoryNews = getNews(category);
     categoryNews.forEach(categoryNewsItem => {
         const newsItem = document.createElement("a");
-        newsItem.style.backgroundImage = "url(" + categoryNewsItem.picture + ")";
+        newsItem.style.backgroundImage = "url(" + categoryNewsItem.image + ")";
         newsItem.classList.add("grid-item");
     
         const authorItem = document.createElement("p");
@@ -195,12 +250,22 @@ const getNews = (category) => {
 
 const getRandomNews = () => {
     let randomNews = [];
+    if (news.length <= 6) {
+        for (var i = 0; i < news.length; i++) {
+            randomNews.push(news[i]);
+        }
+
+        return randomNews;
+    }
+
     while (randomNews.length < 6) {
         const random = Math.floor(Math.random() * news.length);
         const selectedNews = news[random];
         if (randomNews.includes(selectedNews)) continue;
         
         randomNews.push(selectedNews);
+
+        if(randomNews.length >= news.length) break;
     }
 
     return randomNews;

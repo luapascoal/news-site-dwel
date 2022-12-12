@@ -50,24 +50,24 @@
         <form onsubmit="return false;" method="post">
             <p>Registrar Notícia</p>
 
-            <label for="types">Tipos</label>
-            <datalist id="types">
-                <option value="Saúde">
-                <option value="Política">    
-                <option value="Educação">
-             </datalist>
+            <label for="news-category">Tipos</label>
+            <select name="news-category" id="news-category" required>
+                <option value="politic">Política</option>
+                <option value="education">Educação</option>
+                <option value="health">Saúde</option>
+              </select>
 
-            <label for="title">Título</label>
-            <input type="text" id="title" name="title" placeholder="Digite o Título">
+            <label for="news-title">Título</label>
+            <input type="text" id="news-title" name="title" required maxlength="50" placeholder="Digite o Título">
 
-            <label for="image">Imagem</label>
-            <input type="text" id="image" name="image" placeholder="Digite o url da imagem">
+            <label for="news-image">Imagem</label>
+            <input type="text" id="news-image" name="image" required placeholder="Digite o url da imagem">
 
-            <label for="author">Autor</label>
-            <input type="text" id="author" name="author" placeholder="Digite o Autor">
+            <label for="news-author">Autor</label>
+            <input type="text" id="news-author" name="author" required maxlength="100" placeholder="Digite o Autor">
 
-            <label for="content">Conteúdo</label>
-            <input type="text" id="content" name="content" placeholder="Digite o Texto">
+            <label for="news-content">Conteúdo</label>
+            <input type="text" id="news-content" name="content" required maxlength="1000" placeholder="Digite o Texto">
             
             <input type="submit" value="Enviar" onclick="return handleRegisterNews()">
             <p id="register-news"></p>

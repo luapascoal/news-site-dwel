@@ -1,8 +1,11 @@
-firebase.auth().onAuthStateChanged((user) => {
+firebase.auth().onAuthStateChanged(async(user) => {
     if (user) {
-        if (fetchUser() != null && fetchUser().admin) {
+        let test = await fetchUser();
+        console.log(test.admin);
+        if (test != null && test.admin) {
             createAdminButton();
         }
+        console.log('user update');
         console.log(user);
     }
 });
@@ -23,7 +26,7 @@ function handleRegister(e) {
     })
     .catch((error) => {
         console.log(error);
-        document.getElementById('register-message').innerHTML = "Erro: " + error;
+        document.getElementById('register-message').innerHTML = error;
     });
 };
 
